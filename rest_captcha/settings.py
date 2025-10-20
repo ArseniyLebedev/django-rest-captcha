@@ -14,7 +14,7 @@ DEFAULTS = {
     'CAPTCHA_CACHE_KEY': 'rest_captcha_{key}.{version}',
     'CAPTCHA_KEY': 'captcha_key',
     'CAPTCHA_IMAGE': 'captcha_image',
-    'CAPTCHA_LENGTH': 4,
+    'CAPTCHA_LENGTH': 6,
     'CAPTCHA_FONT_PATH': FONT_PATH,
     'CAPTCHA_FONT_SIZE': 22,
     'CAPTCHA_IMAGE_SIZE': (90, 40),

@@ -1,6 +1,10 @@
 import random
+import secrets
+import string
+
 from rest_captcha import VERSION
 from .settings import api_settings
+
 
 cache_template = api_settings.CAPTCHA_CACHE_KEY
 
@@ -9,13 +13,13 @@ def get_cache_key(captcha_key):
     cache_key = cache_template.format(key=captcha_key, version=VERSION.major)
     return cache_key
 
-
-def random_char_challenge(length):
-    chars = 'abcdefghijklmnopqrstuvwxyz'
-    ret = ''
-    for i in range(length):
-        ret += random.choice(chars)
-    return ret.upper()
+def random_char_challenge(length: int) -> str:
+    """
+    Crypto-resistant CAPTCHA string generation: alphabet A–Z + 0–9.
+    Length is set by the setting.
+    """
+    alphabet = string.ascii_uppercase + string.digits
+    return ''.join(secrets.choice(alphabet) for _ in range(length))
 
 
 def filter_smooth(image, filter_code):

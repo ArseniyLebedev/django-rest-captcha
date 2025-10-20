@@ -12,7 +12,7 @@ packages = [
 [tool.poetry.dependencies]
 python = "^3.8"
 djangorestframework = "^3"
-django = "^4"
+django = "^2"
 Pillow = "*"
 
 [tool.poetry.dev-dependencies]
